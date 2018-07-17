@@ -75,9 +75,7 @@ featurePlot(x = predictors_belt[, 1:4], y = training$classe, plot = "box")
 
 ```
 
-```{r explore2}
-
-knitr::opts_chunk$set(echo = TRUE)
+```{r explore2, results="hide"}
 
 # Plot roll, pitch, yaw and total acceleration for forearm
 x <- subset(predictors_forearm, select = c(roll_forearm, pitch_forearm, yaw_forearm, total_accel_forearm))
@@ -157,7 +155,7 @@ summary(results)
 
 ### Model Testing
 
-To estimate the out-of-sample error, predictions are made using the two most accurate models on the testing data.
+To estimate the out-of-sample error, predictions are made using the selected model (fit.rf).
 
 ```{r test}
 
@@ -182,15 +180,12 @@ predictions1 <- predict(fit.rf, data_test)
 
 ### Estimate Out-of-Sample Error
 
-A confusion matrix is used to estimate the out-of-sample error for the two most accurate models. A 95% confidence interval of the accuracy of the fit.rf model on the test data is between 99.9% and 100%, which means the estimate of the out-of-sample error is between 0% and 0.1%.  
+A confusion matrix is used to estimate the out-of-sample error for the most accurate model (fit.rf). A 95% confidence interval of the accuracy of the fit.rf model on the test data is between 99.9% and 100%, which means the estimate of the out-of-sample error is between 0% and 0.1%.  
 
 ```{r estimate}
 
 # Confusion matrix
 confusionMatrix(predictions1, data_test$classe)
-
-# Plot on a table?
-
 
 ```
 
