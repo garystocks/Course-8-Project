@@ -75,33 +75,6 @@ featurePlot(x = predictors_belt[, 1:4], y = training$classe, plot = "box")
 
 ```
 
-```{r explore2, results="hide"}
-
-# Plot roll, pitch, yaw and total acceleration for forearm
-x <- subset(predictors_forearm, select = c(roll_forearm, pitch_forearm, yaw_forearm, total_accel_forearm))
-featurePlot(x = x, y = training$classe, plot = "pairs")
-featurePlot(x = x, y = training$classe, plot = "ellipse")
-scales <- list(x=list(relation="free"), y=list(relation="free"))
-featurePlot(x = x, y = training$classe, plot = "density", scales = scales)
-featurePlot(x = x, y = training$classe, plot = "box")
-
-# Plot roll, pitch, yaw and total acceleration for arm
-featurePlot(x = predictors_arm[, 1:4], y = training$classe, plot = "pairs")
-featurePlot(x = predictors_arm[, 1:4], y = training$classe, plot = "ellipse")
-scales <- list(x=list(relation="free"), y=list(relation="free"))
-featurePlot(x = predictors_arm[, 1:4], y = training$classe, plot = "density", scales = scales)
-featurePlot(x = predictors_arm[, 1:4], y = training$classe, plot = "box")
-
-# Plot roll, pitch, yaw and total acceleration for dumbbell
-x <- subset(predictors_dumbbell, select = c(roll_dumbbell, pitch_dumbbell, yaw_dumbbell, total_accel_dumbbell))
-featurePlot(x = x, y = training$classe, plot = "pairs")
-featurePlot(x = x, y = training$classe, plot = "ellipse")
-scales <- list(x=list(relation="free"), y=list(relation="free"))
-featurePlot(x = x, y = training$classe, plot = "density", scales = scales)
-featurePlot(x = x, y = training$classe, plot = "box")
-
-```
-
 
 ### Model Training
 
